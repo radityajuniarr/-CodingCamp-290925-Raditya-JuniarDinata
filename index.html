@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Todo List — Light</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+  <main class="page">
+    <section class="shell">
+
+      <header class="header">
+        <div class="title">
+          <i class="bx bx-check-shield"></i>
+          <h1>Todo List</h1>
+        </div>
+        <div class="stats">
+          <span id="stat-total" class="chip">0 tasks</span>
+          <span id="stat-done" class="chip success">0 done</span>
+          <span id="stat-pending" class="chip warn">0 pending</span>
+        </div>
+      </header>
+
+      <form id="todo-form" class="bar">
+        <div class="field">
+          <i class="bx bx-plus-circle"></i>
+          <input id="todo-input" type="text" placeholder="Add a todo..." autocomplete="off">
+        </div>
+        <div class="field">
+          <i class="bx bx-calendar"></i>
+          <input id="todo-date" type="date">
+        </div>
+        <button id="add-btn" class="btn primary" type="submit" title="Add">
+          <i class="bx bx-plus"></i>
+          <span>Add</span>
+        </button>
+      </form>
+
+      <div class="controls">
+        <div class="left">
+          <label for="status-filter" class="label">Filter</label>
+          <select id="status-filter" class="select">
+            <option value="all">All</option>
+            <option value="pending">Pending</option>
+            <option value="done">Completed</option>
+          </select>
+        </div>
+        <div class="right">
+          <button id="delete-all" class="btn danger">
+            <i class="bx bx-trash"></i>
+            <span>Delete All</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Task</th>
+              <th>Due Date</th>
+              <th>Status</th>
+              <th class="actions-th">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="todo-body">
+            <tr class="empty-row">
+              <td colspan="4">No task found</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <footer class="footer">
+        <small>Data tersimpan otomatis di perangkat (localStorage)</small>
+      </footer>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
